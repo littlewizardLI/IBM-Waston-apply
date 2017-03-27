@@ -1,0 +1,9 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  domain: au-syd.mybluemix.net 
+  name: owcs
+  host: owcs
+  disk_quota: 1024M
+  buildpack: python_buildpack
