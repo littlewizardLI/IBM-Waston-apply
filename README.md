@@ -1,4 +1,5 @@
-# waston-making-poem
+# waston为你写诗
+
 这是一个基于bluemix平台，利用Waston开发的，根据图片内容作诗的项目。
 项目主要有三个部分：
  - 获取图片并识别。利用微信公众平台获得图片，而后调用Watson的图像识别服务。
