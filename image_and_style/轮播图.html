@@ -1,0 +1,123 @@
+<style type="text/css">
+  *{margin:0; padding:0; text-decoration:none;}
+  body{padding:20px;}
+  #container{width:600px; height:400px; boder:3px solid #333; overflow:hidden; position:relative;}
+  //隐藏多出列表，位置基于父容器。
+  #list{width:4200px; height:400px; position:absolute;z-index:1;}
+  #list img{float: left;}
+  #buttons {position:absolute; height:10px; width:100px;z-index:2; bottom:20px; left:250px;}
+  #buttons span {cursor:pointer; float:left;boder:1px solid #fff;width:10px;height:10px;border-radius:50%;background:#333;margin-right:5px;}
+  #buttons .on {background:orangered;}
+  .arrow {cursor: pointer; display:none; line-height:39px;z-index:2;top:180px;}
+  .arrow:hover {background-color: RGBA(0,0,0,.7);}
+  #container:hover .arrow{display:block;}
+  #prev{left:20px;}
+  #next{right:20px;}
+  
+</style>
+<script type="text/script">
+  window.onload = function(){
+    var container = document.getElementById("container")
+	var list = document.getElementById("list");
+	var buttons = document.getElementById("buttons").getElementByTagName("span");
+	var prev = document.getElementById("prev");
+	var next = document.getElementById("next");
+	var index = 1;
+	var animated = false;
+	var timer;
+	
+	function showButton(){
+	  for(var i = 0; i<buttons.length; i++){
+	    if(buttons[i].className == "on"){
+		  buttons[i].className = "";
+		  break;
+		}  
+	  }
+	  buttons[index-1].className = "on";
+	}
+	
+	function animate(offset){
+	  animated = true;
+	  var newleft = parseInt(list.style.left) + offset; 
+	  var time = 300;
+	  var interval = 10;//位移间隔
+	  var speed = offset/(time/interval);//每次位移量
+      
+      function go(){
+	    if((speed < 0 && parseInt(list.style.left) > newleft)||(speed > 0 && parseInt(list.style.left) < newleft)){
+		  list.style.left = parseInt(list.style.left) + speed + "px";
+		  setTimeout(go, interval);
+		}else{
+		  animated = false;
+		  list.style.left = newleft + offset +"px";
+	      if(newleft > -600) list.style.left = -3000+"px";
+	      if(newleft < -3000) list.style.left = -600+"px";
+		}
+	  }	  
+	}
+	
+	function play(){
+	  timer = setInterval(function(){
+	    next.onclick();
+	  },3000);
+	}
+	
+	function stop(){
+	  clearInterval(timer);
+	}
+	next.onclick = function(){
+	  if(index == 5){
+	    index = 1;
+	  }else{
+	    index += 1;
+      }
+	  showButton();
+	  if(animated == false)
+	  {animate(-600);}
+	  
+	}
+	
+	prev.onclick = function(){
+	  if(index == 1){
+	    index = 5;
+	  }else{
+	    index -= 1;;
+      }
+	  showButton();
+	  if(animated == false)
+	  {animate(600);}
+	}
+	
+	for(var i = 0; i < button.length; i++ ){
+	  buttons[i].onclick = function(){
+	    if (this.className == "on") return;
+	    var myIndex = parseInt(this.getAttribute("index"));
+		var offset = -600 *(myIndex - index); 
+		index = myIndex;
+		if(animated == false)
+	    {animate(offset);}
+		showButton();
+	  }
+	}
+	container.onmouseover = stop;
+	container.onmouseout = play;
+	
+	play();
+  }
+  
+</script>
+<div id="container">
+  <div id="list" style="left:-600px;">
+    <img src=""alt=""/>
+	<img>
+  </div>
+  <div id="buttons">
+    <span index="1" class="on"></span>
+	<span index="2"></span>
+	<span index="3"></span>
+	<span index="4"></span>
+	<span index="5"></span>
+  </div>
+  <a href="javascript:;" class="arrow" id="prev">&lt;</a>
+  <a href="javascript:;" class="arrow" id="next">&gt;</a>  
+</div>
