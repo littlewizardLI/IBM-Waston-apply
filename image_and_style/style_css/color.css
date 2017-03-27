@@ -1,0 +1,19 @@
+#home{
+  color:white;
+  background-color: white;
+}
+#slideshow{
+  color:black;
+  background-color: white;
+}
+#navi li{
+  color: white;
+  background-color: gainsboro;
+}
+#navi a{
+  color:grey;
+}
+#content{
+  color:bisque;
+  background-color:white;
+}

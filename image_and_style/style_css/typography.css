@@ -1,0 +1,9 @@
+body{
+  font-size: 75%;
+  font-family: "Microsoft Yahei";
+}
+#navi a{
+  font-size: 300%;
+  font-family: "Microsoft Yahei",sans-serif;
+  text-decoration: none;
+}

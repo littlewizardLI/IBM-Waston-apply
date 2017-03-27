@@ -1,0 +1,117 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+#home{
+  display:block;
+  margin:1em 10%; 
+  padding:0 0 10% 0;
+  border: .1rem solid;
+}
+
+#slideshow{
+  width:80%;
+  height: 300px; 
+  overflow: hidden;
+  margin:0 auto;
+  position: relative;
+}
+#list{
+  width:600%;
+  height: 300px;
+  position: absolute;
+  z-index:1;
+}
+#list img{
+  width: 16.6666666667%;
+  float: left;
+  
+}
+#buttons {
+  position:absolute; 
+  height:1.5rem; 
+  width:10rem;
+  z-index:2; 
+  bottom:.03rem;
+  margin-left: 45%;
+  margin-right: 35%; 
+  
+}
+#buttons span{
+  cursor:pointer; 
+  float:left;
+  border:.01rem solid #fff;
+  width:.5rem;
+  height:.5rem;
+  border-radius:50%;
+  background:#333;
+  margin-top: .3rem;
+  margin-right:.3rem;
+}
+#buttons .on {background:orangered;}
+.arrow{
+  position: absolute;
+  cursor: pointer;
+  display: none;
+  text-decoration: none;
+  top: 33%;
+  text-align: center;
+  width: 2rem;
+  height: 5rem;
+  font-size: 3rem;
+  z-index:2;
+  color: black;
+  background: rgba(1,0,0,0);
+}
+.arrow:hover {background-color: RGBA(0,0,0,.3);}
+#slideshow:hover .arrow{display:block;}
+#prev{
+  left:.3rem;
+}
+#next{
+  right: .3rem;
+}
+#navi{
+  margin-bottom: 5rem;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-width: .1rem;
+  border-style: solid;
+}
+#navi ul{
+  width:100%;
+  overflow: hidden;
+  border-left-width: .1rem;
+  border-left-style: solid;
+  margin:0 auto;
+}
+#navi ul li{
+  display: inline;
+  float: left;
+  width: 33%;
+  border-right: .1rem solid;
+}
+#navi ul li a{
+  display: block;
+  width:50%;
+  margin:0 auto;
+}
+#content{
+  display: block;
+  list-style: none;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-style: solid;
+}
+#content img{
+  display: block;
+  margin:0 auto;
+}
+.me{
+  padding-left: 80%;
+}
+.me li{
+  display:inline;
+
+  margin: 1em;
+}
